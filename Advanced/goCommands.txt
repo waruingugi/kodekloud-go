@@ -1,0 +1,37 @@
+> go mod init:
+- The command initializes and writes a new go.mod file in the current directory.
+- In effect creating a new module rooted at the current directory.
+- It accepts one optional argument, which is the module path for the new module
+
+> go mod tidy:
+- The command ensures that the go.mod file matches the source code in the module.
+- It adds any missing module requirements necessary to build the current module's packages and dependencies.
+- And it removes requirements on modules that don't provide any relevant packages.
+
+> go run <file>:
+- The command compiles and runs the program
+- Internally it:
+    - compiles your code and builds an executable binary in a temporary location.
+    - launches that temp exe-file and
+    - finally cleans it when your app exits.
+- Usually good for testing small programs.
+
+> go build:
+- The go build command compiles the packages named by the import paths, along with their
+dependencies into an executable.
+- The executable gets created in the current source directory.
+
+> go install:
+- go build will compile and create the executable in current directory.
+- go install will:
+    - compile and move the executable to $GOPATH/bin
+    - run this executable from any path on the terminal
+    - You can find the path using <go env GOPATH>
+
+> go get:
+- The command:
+    - resolves its command-line arguments to packages at specific module versions.
+    - updates go.mod to require those versions
+    - and downloads source code into the module cache
+- Add a dependecy for a package or upgrade it to its latest version: go get example.com/pkg
+- To upgrade or downgrade a package to a specific version: go get example.com/pkg@v1.2.3
